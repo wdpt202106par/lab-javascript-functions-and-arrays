@@ -26,7 +26,7 @@ function findLongestWord (arr1){
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers (arr2){
   if (arr2.length === 0){
-    return zero
+    return 0
   }
   let sum = 0;
   for (let i = 0; i < arr2.length; i++){
@@ -34,6 +34,28 @@ function sumNumbers (arr2){
   }
   return sum
 }
+// Bonus - Iteration 3.1:
+// Succeeded for number, string but not boolean, object and array, altho worked on Codepen
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(arr21){
+  let sumMixed = 0
+  for (let i = 0; i < arr21.length; i++){
+    if (typeof arr21[i]=== 'number'){
+      sumMixed = sumMixed + arr21[i];
+    }
+    else if (typeof arr21[i]=== 'string'){
+      sumMixed = sumMixed + arr21[i].length;
+    }
+    else if (typeof arr21[i]=== 'boolean'){
+      sumMixed = sumMixed + 1;
+    }
+    else if (typeof arr21[i]=== 'object'||arr21[i]=== 'array'){
+      sumMixed = sumMixed;
+      console.log('Error! We can calculate the sum of Array or Object elements in the Array');
+    }
+  } return sumMixed
+}console.log(sum(mixedArr));
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -46,7 +68,18 @@ function averageNumbers (arr3) {
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
+function averageWordLength (arr4){
+  if (arr4.length === 0){
+    return null
+  }
+    let sumWordsLength = 0;
+    let avgWordsLength = 0;
+  for (let i = 0; i < arr4.length; i++){
+    sumWordsLength = sumWordsLength + arr4[i].length;
+    avgWordsLength = sumWordsLength/arr4.length;
+  } return avgWordsLength;
+}
+console.log(averageWordLength(wordsArr));
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
