@@ -104,10 +104,8 @@ function doesWordExist(someArr, words){
     if (words === someArr[i]){
       return true;
     }
-    else {
-      return false;
-    }
   }
+  return false;
 }
 
 // Iteration #7: Count repetition
