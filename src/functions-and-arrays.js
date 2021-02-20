@@ -49,10 +49,21 @@ function averageNumbers(someArr){
   return average
 }
 
-
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+function averageWordLength(someArr){
+  let sum = 0;
+  let average = 0
+  if (someArr.length === 0) {
+    return null
+  }
+  for (let i = 0; i < someArr.length; i++){
+    sum += someArr[i].length;
+  }
+  average = sum/someArr.length;
+  return average
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
