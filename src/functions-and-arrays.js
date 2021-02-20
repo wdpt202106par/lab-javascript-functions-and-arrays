@@ -35,7 +35,9 @@ function sumNumbers (arr2){
   return sum
 }
 // Bonus - Iteration 3.1:
-// Succeeded for number, string but not boolean, object and array, altho worked on Codepen
+// Succeeded for number, string
+// but not boolean, object and array, 
+//although it worked on Codepen
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(arr21){
   let sumMixed = 0
@@ -72,6 +74,7 @@ function averageWordLength (arr4){
   if (arr4.length === 0){
     return null
   }
+  //Firstly calculate sum of length of all elements then average
     let sumWordsLength = 0;
     let avgWordsLength = 0;
   for (let i = 0; i < arr4.length; i++){
