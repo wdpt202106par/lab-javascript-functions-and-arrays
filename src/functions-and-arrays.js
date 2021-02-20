@@ -131,10 +131,10 @@ function howManyTimes (someArr, word) {
   for (let i = 0; i < someArr.length; i++){
     if (word === someArr[i]){
       count += 1;
-      return count;
+      
     }
   }
-
+  return count;
 }
 
 // Iteration #8: Bonus
