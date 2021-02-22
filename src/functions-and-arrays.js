@@ -31,7 +31,26 @@ function sumNumbers(someArr){
   }
   return sum;
 }
-
+//Bonus - Iteration #3.1: A generic
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(someArr){
+  let sum = 0;
+  if (someArr.length === 0) {
+    return 0;
+  }
+  for (let i = 0; i < someArr.length; i++){
+    if (typeof(someArr[i]) === "number" ){
+      sum += someArr[i];
+    } else if(typeof(someArr[i]) === "string"){
+      sum += someArr[i].length;
+    }else if(typeof(someArr[i]) === "boolean"){
+      sum += someArr[i];
+    }else if(typeof(someArr[i]) === "object"){
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -62,8 +81,31 @@ function averageWordLength(someArr){
     sum += someArr[i].length;
   }
   average = sum/someArr.length;
-  return average
+  return average;
 }
+
+// Bonus - Iteration #4.1
+function avg(arr){
+  let sum = 0;
+  let average = 0;
+  if (arr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++){
+    if (typeof(arr[i]) === "number" ){
+      sum += arr[i];
+    } else if(typeof(arr[i]) === "string"){
+      sum += arr[i].length;
+    }else if(typeof(arr[i]) === "boolean"){
+      sum += arr[i];
+    }else if(typeof(arr[i]) === "object"){
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  average = Number((sum/arr.length).toFixed(2));
+  return average;
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -130,8 +172,7 @@ function howManyTimes (someArr, word) {
   let count = 0
   for (let i = 0; i < someArr.length; i++){
     if (word === someArr[i]){
-      count += 1;
-      
+      count += 1;     
     }
   }
   return count;
@@ -161,3 +202,27 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matrix){
+  let theGreatestProduct = 0;
+  let newProduct = 0;
+ for (let i = 0 ; i < matrix.length ; i++){
+   for (let j = 0 ; j < matrix[i].length - 3; j ++){
+      newProduct = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+      if (theGreatestProduct < newProduct ){
+        theGreatestProduct = newProduct;
+      }
+    }
+  }
+
+for (let i = 0 ; i < matrix.length - 3; i++){
+   for (let j = 0 ; j < matrix[i].length ; j ++){
+
+    newProduct = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+    if (theGreatestProduct < newProduct ){
+      theGreatestProduct = newProduct;
+    }  
+   }
+}
+
+ return theGreatestProduct;
+}
