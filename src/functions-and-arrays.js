@@ -1,19 +1,103 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers (a,b) {
+  return Math.max(a,b)
+} 
+maxOfTwoNumbers(10,100)
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+function findLongestWord (arr1){
+
+  if (arr1.length === 0) {
+    return null
+  }
+
+  var longestWord = "";
+ for (let i = 0; i < arr1.length; i++){
+   if (arr1[i].length > longestWord.length){
+     longestWord = arr1[i];
+   } 
+ }  
+  return longestWord;
+}
+  console.log(findLongestWord(words));
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function sumNumbers (arr2){
+  if (arr2.length === 0){
+    return 0
+  }
+  let sum = 0;
+  for (let i = 0; i < arr2.length; i++){
+    sum = sum + arr2[i];
+  }
+  return sum
+}
+// Bonus - Iteration 3.1:
+// Succeeded for number, string
+// but not boolean, object and array, 
+//although it worked on Codepen
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(arr21){
+  let sumMixed = 0
+  for (let i = 0; i < arr21.length; i++){
+    switch (typeof arr21[i]){
+    case 'number':
+      sumMixed = sumMixed + arr21[i];
+    break;
+    case 'string':
+      sumMixed = sumMixed + arr21[i].length;
+    break;
+    case 'boolean':
+      sumMixed = sumMixed + 1;
+    break;
+    case 'array':
+      console.log('Error! We can calculate the sum of Array elements in the Array');
+    break;
+    case 'object':
+    console.log('Error! We can calculate the sum of Object elements in the Array');
+    break;
+    default:
+    console.log(sumMixed);
+    break;}
+  } return sumMixed
+}console.log(sum(mixedArr));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+function averageNumbers (arr3) {
+  if (arr3.length === 0){
+    return null
+  }
+  return sumNumbers(arr3)/arr3.length
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
+function averageWordLength (arr4){
+  if (arr4.length === 0){
+    return null
+  }
+  //Firstly calculate sum of length of all elements then the average
+    let sumWordsLength = 0;
+    let avgWordsLength = 0;
+  for (let i = 0; i < arr4.length; i++){
+    sumWordsLength = sumWordsLength + arr4[i].length;
+    avgWordsLength = sumWordsLength/arr4.length;
+  } return avgWordsLength;
+}
+console.log(averageWordLength(wordsArr));
+//Bonus - iteration 4.1:
+function avg(arr){
+  if (arr.length === 0){
+    return null
+  }
+  let result = sum(arr)/arr.length;
+  return result
+}console.log(avg(mixedArr));  
+// worked on Codepen but not validated by Jasmin
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -28,10 +112,39 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(someArr){
+  let newArray = []
+  // create new array
+  if (someArr.length === 0) {
+    return null
+    // return null if receives an empty array when called
+  }
+  for (let i = 0; i < someArr.length; i++){
+    if (newArray.indexOf(someArr[i]) < 0){
+      newArray.push(someArr[i])
+    }
+    //when newArray.indexOf < 0 => it means the someArr[i] does not present in newArray => push
+    //should return the correct uniqified array when an array of the same elements passed as argument
+  }
+  return newArray;
+ };
+ //return the same array when no element is repeated
+ uniquifyArray(wordsUnique);
+ // return the uniquified array
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+// did not function return false 
+  const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+  function doesWordExist (arr5, el){
+    if (arr5.length === 0){
+      return null
+    }
+    for (let i = 0; i < arr5.length; i++){
+      if (arr5[i] == el){
+        return true
+      }
+    } return false
+  } doesWordExist (wordsFind, 'starting');
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,6 +159,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes (arr6, value){
+  if (arr6.length === 0){
+    return 0
+  }
+  let n = 0;
+  for (i = 0; i < arr6.length; i++){
+    if (arr6[i] == value){
+      n++;
+    }
+  } return n;
+} howManyTimes(wordsCount,'matter');
 
 // Iteration #8: Bonus
 
@@ -71,3 +195,13 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+//find the greatestProduct
+function greatestProduct (arr){
+ for (let x = 0; x < arr.length ; x++){
+   var multiple = 1*arr[x];
+   if (multiple = 1){
+     return 1
+   }
+   
+ }  
+}
