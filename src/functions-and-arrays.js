@@ -42,19 +42,25 @@ const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 function sum(arr21){
   let sumMixed = 0
   for (let i = 0; i < arr21.length; i++){
-    if (typeof arr21[i]=== 'number'){
+    switch (typeof arr21[i]){
+    case 'number':
       sumMixed = sumMixed + arr21[i];
-    }
-    else if (typeof arr21[i]=== 'string'){
+    break;
+    case 'string':
       sumMixed = sumMixed + arr21[i].length;
-    }
-    else if (typeof arr21[i]=== 'boolean'){
+    break;
+    case 'boolean':
       sumMixed = sumMixed + 1;
-    }
-    else if (typeof arr21[i]=== 'object'||arr21[i]=== 'array'){
-      sumMixed = sumMixed;
-      console.log('Error! We can calculate the sum of Array or Object elements in the Array');
-    }
+    break;
+    case 'array':
+      console.log('Error! We can calculate the sum of Array elements in the Array');
+    break;
+    case 'object':
+    console.log('Error! We can calculate the sum of Object elements in the Array');
+    break;
+    default:
+    console.log(sumMixed);
+    break;}
   } return sumMixed
 }console.log(sum(mixedArr));
 
@@ -74,7 +80,7 @@ function averageWordLength (arr4){
   if (arr4.length === 0){
     return null
   }
-  //Firstly calculate sum of length of all elements then average
+  //Firstly calculate sum of length of all elements then the average
     let sumWordsLength = 0;
     let avgWordsLength = 0;
   for (let i = 0; i < arr4.length; i++){
@@ -83,6 +89,15 @@ function averageWordLength (arr4){
   } return avgWordsLength;
 }
 console.log(averageWordLength(wordsArr));
+//Bonus - iteration 4.1:
+function avg(arr){
+  if (arr.length === 0){
+    return null
+  }
+  let result = sum(arr)/arr.length;
+  return result
+}console.log(avg(mixedArr));  
+// worked on Codepen but not validated by Jasmin
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -97,10 +112,39 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(someArr){
+  let newArray = []
+  // create new array
+  if (someArr.length === 0) {
+    return null
+    // return null if receives an empty array when called
+  }
+  for (let i = 0; i < someArr.length; i++){
+    if (newArray.indexOf(someArr[i]) < 0){
+      newArray.push(someArr[i])
+    }
+    //when newArray.indexOf < 0 => it means the someArr[i] does not present in newArray => push
+    //should return the correct uniqified array when an array of the same elements passed as argument
+  }
+  return newArray;
+ };
+ //return the same array when no element is repeated
+ uniquifyArray(wordsUnique);
+ // return the uniquified array
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+// did not function return false 
+  const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+  function doesWordExist (arr5, el){
+    if (arr5.length === 0){
+      return null
+    }
+    for (let i = 0; i < arr5.length; i++){
+      if (arr5[i] == el){
+        return true
+      }
+    } return false
+  } doesWordExist (wordsFind, 'starting');
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -115,6 +159,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes (arr6, value){
+  if (arr6.length === 0){
+    return 0
+  }
+  let n = 0;
+  for (i = 0; i < arr6.length; i++){
+    if (arr6[i] == value){
+      n++;
+    }
+  } return n;
+} howManyTimes(wordsCount,'matter');
 
 // Iteration #8: Bonus
 
@@ -140,3 +195,13 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+//find the greatestProduct
+function greatestProduct (arr){
+ for (let x = 0; x < arr.length ; x++){
+   var multiple = 1*arr[x];
+   if (multiple = 1){
+     return 1
+   }
+   
+ }  
+}
