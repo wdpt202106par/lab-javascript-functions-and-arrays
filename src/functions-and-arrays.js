@@ -63,7 +63,7 @@ console.log(averageNumbers(numbersAvg));
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(arrayStr) {
-  return (arrayStr.join("").length/arrayStr.length)
+  return Math.round(arrayStr.join("").length/arrayStr.length)
 }
 console.log(averageWordLength(wordsArr));
 
@@ -82,8 +82,35 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(array) {
+  let resArray = [];
+  if(array==="") {
+  return null
+}
+for (let i = 0; i < array.length; i++) {
+  if (resArray.indexOf(array[i]) === -1 && array[i] !=="")  {
+      resArray.push(array[i])
+}
+}
+    return resArray;
+}
+console.log(uniquifyArray(wordsUnique));
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist(array, word) {
+  let result = "";
+    for (let i = 0; i < array.length; i++) {
+if (result.indexOf(array[i]) === -1 && array[i] !=="" && array.includes(word) === true) {
+    return true
+    } else {
+  return false
+}
+    }
+  return result
+  }
+console.log(doesWordExist(wordsFind, 'hello'));
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -99,6 +126,27 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(array, word) {
+  let count = ""
+
+  for(let i = 0; i < array.lenght; i++) {
+    if(count(array[i])) {
+      count(array[i]) += 1
+    } else {
+      count(array[i]) = 1
+    }
+  }
+  for (let word in count) {
+      if (count[word] >= 2) {
+        console.log(count[word]);
+    }
+  }
+  console.log(count);
+}
+
+console.log(howManyTimes(wordsCount, 'machine'));
+
 
 // Iteration #8: Bonus
 
